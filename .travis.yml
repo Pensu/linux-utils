@@ -17,6 +17,11 @@ jobs:
       env:
         - DIMAGE="openebs/linux-utils-arm64"
         - TRIVYARCH="ARM64"
+    - os: linux
+      arch: ppc64le
+      env:
+        - DIMAGE="openebs/linux-utils-ppc64le"
+        - TRIVYARCH="ppc64le"  
 
 before_install:
   - export VERSION=$(curl --silent "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
